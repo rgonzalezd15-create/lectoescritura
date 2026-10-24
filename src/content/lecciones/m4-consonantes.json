@@ -1,0 +1,343 @@
+{
+  "modulo": 4,
+  "lecciones": [
+    {
+      "id": "cons-m",
+      "modulo": 4,
+      "titulo": "m",
+      "icono": "m",
+      "pasos": [
+        {
+          "mecanica": "presentacion_fonema",
+          "fonema": "m"
+        },
+        {
+          "mecanica": "elevador_silabas",
+          "consonantes": [
+            "m"
+          ],
+          "vocales": [
+            "a",
+            "e",
+            "i",
+            "o",
+            "u"
+          ],
+          "objetivos": [
+            {
+              "texto": "ma"
+            },
+            {
+              "texto": "mo"
+            },
+            {
+              "texto": "me"
+            },
+            {
+              "texto": "mu"
+            },
+            {
+              "texto": "mi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cons-s",
+      "modulo": 4,
+      "titulo": "s",
+      "icono": "s",
+      "pasos": [
+        {
+          "mecanica": "presentacion_fonema",
+          "fonema": "s"
+        },
+        {
+          "mecanica": "elevador_silabas",
+          "consonantes": [
+            "s"
+          ],
+          "vocales": [
+            "a",
+            "e",
+            "i",
+            "o",
+            "u"
+          ],
+          "objetivos": [
+            {
+              "texto": "sa"
+            },
+            {
+              "texto": "su"
+            },
+            {
+              "texto": "se"
+            },
+            {
+              "texto": "so"
+            },
+            {
+              "texto": "si"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cons-l",
+      "modulo": 4,
+      "titulo": "l",
+      "icono": "l",
+      "pasos": [
+        {
+          "mecanica": "presentacion_fonema",
+          "fonema": "l"
+        },
+        {
+          "mecanica": "elevador_silabas",
+          "consonantes": [
+            "l"
+          ],
+          "vocales": [
+            "a",
+            "e",
+            "i",
+            "o",
+            "u"
+          ],
+          "objetivos": [
+            {
+              "texto": "la"
+            },
+            {
+              "texto": "lo"
+            },
+            {
+              "texto": "li"
+            },
+            {
+              "texto": "le"
+            },
+            {
+              "texto": "lu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repaso-msl",
+      "modulo": 4,
+      "titulo": "m s l",
+      "icono": "⭐",
+      "pasos": [
+        {
+          "mecanica": "elevador_silabas",
+          "consonantes": [
+            "m",
+            "s",
+            "l"
+          ],
+          "vocales": [
+            "a",
+            "e",
+            "i",
+            "o",
+            "u"
+          ],
+          "objetivos": [
+            {
+              "texto": "sa"
+            },
+            {
+              "texto": "lo"
+            },
+            {
+              "texto": "mi"
+            },
+            {
+              "texto": "su"
+            },
+            {
+              "texto": "le"
+            },
+            {
+              "texto": "mo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cons-n",
+      "modulo": 4,
+      "titulo": "n",
+      "icono": "n",
+      "pasos": [
+        {
+          "mecanica": "presentacion_fonema",
+          "fonema": "n"
+        },
+        {
+          "mecanica": "elevador_silabas",
+          "consonantes": [
+            "n"
+          ],
+          "vocales": [
+            "a",
+            "e",
+            "i",
+            "o",
+            "u"
+          ],
+          "objetivos": [
+            {
+              "texto": "na"
+            },
+            {
+              "texto": "no"
+            },
+            {
+              "texto": "ne"
+            },
+            {
+              "texto": "nu"
+            },
+            {
+              "texto": "ni"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cons-f",
+      "modulo": 4,
+      "titulo": "f",
+      "icono": "f",
+      "pasos": [
+        {
+          "mecanica": "presentacion_fonema",
+          "fonema": "f"
+        },
+        {
+          "mecanica": "elevador_silabas",
+          "consonantes": [
+            "f"
+          ],
+          "vocales": [
+            "a",
+            "e",
+            "i",
+            "o",
+            "u"
+          ],
+          "objetivos": [
+            {
+              "texto": "fa"
+            },
+            {
+              "texto": "fo"
+            },
+            {
+              "texto": "fi"
+            },
+            {
+              "texto": "fe"
+            },
+            {
+              "texto": "fu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cons-p",
+      "modulo": 4,
+      "titulo": "p",
+      "icono": "p",
+      "pasos": [
+        {
+          "mecanica": "presentacion_fonema",
+          "fonema": "p"
+        },
+        {
+          "mecanica": "elevador_silabas",
+          "consonantes": [
+            "p"
+          ],
+          "vocales": [
+            "a",
+            "e",
+            "i",
+            "o",
+            "u"
+          ],
+          "objetivos": [
+            {
+              "texto": "pa"
+            },
+            {
+              "texto": "pe"
+            },
+            {
+              "texto": "po"
+            },
+            {
+              "texto": "pi"
+            },
+            {
+              "texto": "pu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repaso-nfp",
+      "modulo": 4,
+      "titulo": "n f p",
+      "icono": "⭐",
+      "pasos": [
+        {
+          "mecanica": "elevador_silabas",
+          "consonantes": [
+            "n",
+            "f",
+            "p"
+          ],
+          "vocales": [
+            "a",
+            "e",
+            "i",
+            "o",
+            "u"
+          ],
+          "objetivos": [
+            {
+              "texto": "pa"
+            },
+            {
+              "texto": "ne"
+            },
+            {
+              "texto": "fo"
+            },
+            {
+              "texto": "pi"
+            },
+            {
+              "texto": "nu"
+            },
+            {
+              "texto": "fa"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

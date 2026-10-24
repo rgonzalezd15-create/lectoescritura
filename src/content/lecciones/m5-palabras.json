@@ -1,0 +1,58 @@
+{
+  "modulo": 5,
+  "lecciones": [
+    {
+      "id": "palabras-elevador",
+      "modulo": 5,
+      "titulo": "Palabras",
+      "icono": "🗺️",
+      "pasos": [
+        {
+          "mecanica": "elevador_silabas",
+          "consonantes": [
+            "m",
+            "s",
+            "l",
+            "n",
+            "f",
+            "p"
+          ],
+          "vocales": [
+            "a",
+            "e",
+            "i",
+            "o",
+            "u"
+          ],
+          "silabas": 2,
+          "objetivos": [
+            {
+              "texto": "mapa",
+              "icono": "🗺️"
+            },
+            {
+              "texto": "sopa",
+              "icono": "🍲"
+            },
+            {
+              "texto": "sapo",
+              "icono": "🐸"
+            },
+            {
+              "texto": "mano",
+              "icono": "✋"
+            },
+            {
+              "texto": "lupa",
+              "icono": "🔍"
+            },
+            {
+              "texto": "pino",
+              "icono": "🌲"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

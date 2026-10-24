@@ -1,0 +1,14 @@
+[
+  { "id": "a", "grafema": "a", "tipo": "vocal", "sonido": "/a/", "continuo": true, "bloque": 0, "audio": "audio/fonemas/a.mp3", "ejemplo": { "palabra": "árbol", "icono": "🌳" }, "boca": { "icono": "😃", "texto": "Abre la boca con alegría" }, "sintesis": "vocal" },
+  { "id": "e", "grafema": "e", "tipo": "vocal", "sonido": "/e/", "continuo": true, "bloque": 0, "audio": "audio/fonemas/e.mp3", "ejemplo": { "palabra": "elefante", "icono": "🐘" }, "boca": { "icono": "😁", "texto": "Sonrisa abierta" }, "sintesis": "vocal" },
+  { "id": "i", "grafema": "i", "tipo": "vocal", "sonido": "/i/", "continuo": true, "bloque": 0, "audio": "audio/fonemas/i.mp3", "ejemplo": { "palabra": "iguana", "icono": "🦎" }, "boca": { "icono": "😬", "texto": "Pequeña y delgada" }, "sintesis": "vocal" },
+  { "id": "o", "grafema": "o", "tipo": "vocal", "sonido": "/o/", "continuo": true, "bloque": 0, "audio": "audio/fonemas/o.mp3", "ejemplo": { "palabra": "oso", "icono": "🐻" }, "boca": { "icono": "😮", "texto": "Boca redonda" }, "sintesis": "vocal" },
+  { "id": "u", "grafema": "u", "tipo": "vocal", "sonido": "/u/", "continuo": true, "bloque": 0, "audio": "audio/fonemas/u.mp3", "ejemplo": { "palabra": "uva", "icono": "🍇" }, "boca": { "icono": "🤫", "texto": "Sonido de susurro" }, "sintesis": "vocal" },
+
+  { "id": "m", "grafema": "m", "tipo": "consonante", "sonido": "/mmm/", "continuo": true, "bloque": 1, "audio": "audio/fonemas/m.mp3", "ejemplo": { "palabra": "mamá", "icono": "👩" }, "sintesis": "nasal" },
+  { "id": "s", "grafema": "s", "tipo": "consonante", "sonido": "/sss/", "continuo": true, "bloque": 1, "audio": "audio/fonemas/s.mp3", "ejemplo": { "palabra": "sol", "icono": "☀️" }, "sintesis": "fricativa_aguda" },
+  { "id": "l", "grafema": "l", "tipo": "consonante", "sonido": "/lll/", "continuo": true, "bloque": 1, "audio": "audio/fonemas/l.mp3", "ejemplo": { "palabra": "luna", "icono": "🌙" }, "sintesis": "lateral" },
+  { "id": "n", "grafema": "n", "tipo": "consonante", "sonido": "/nnn/", "continuo": true, "bloque": 1, "audio": "audio/fonemas/n.mp3", "ejemplo": { "palabra": "nube", "icono": "☁️" }, "sintesis": "nasal" },
+  { "id": "f", "grafema": "f", "tipo": "consonante", "sonido": "/fff/", "continuo": true, "bloque": 1, "audio": "audio/fonemas/f.mp3", "ejemplo": { "palabra": "foca", "icono": "🦭" }, "sintesis": "fricativa_suave" },
+  { "id": "p", "grafema": "p", "tipo": "consonante", "sonido": "/p/", "continuo": false, "bloque": 1, "audio": "audio/fonemas/p.mp3", "ejemplo": { "palabra": "papá", "icono": "👨" }, "sintesis": "oclusiva" }
+]

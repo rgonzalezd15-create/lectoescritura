@@ -1,0 +1,18 @@
+{
+  "modulo": 3,
+  "lecciones": [
+    {
+      "id": "vocales",
+      "modulo": 3,
+      "titulo": "a e i o u",
+      "icono": "a",
+      "pasos": [
+        { "mecanica": "presentacion_fonema", "fonema": "a" },
+        { "mecanica": "presentacion_fonema", "fonema": "e" },
+        { "mecanica": "presentacion_fonema", "fonema": "i" },
+        { "mecanica": "presentacion_fonema", "fonema": "o" },
+        { "mecanica": "presentacion_fonema", "fonema": "u" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@import "@fontsource/andika/400.css";
+@import "@fontsource/andika/700.css";
+
+/* Paleta calmada y accesible. Vocales y consonantes tienen color propio
+   (convención escolar) y ambos superan contraste 4.5:1 sobre el fondo. */
+@theme {
+  --font-escolar: "Andika", "Comic Neue", system-ui, sans-serif;
+  --color-papel: #fff8ee;
+  --color-tinta: #2b2d42;
+  --color-tenue: #6b6f85;
+  --color-suave: #f1e9dc;
+  --color-consonante: #1d4ed8;
+  --color-vocal: #c2410c;
+  --color-exito: #15803d;
+  --color-primario: #2563eb;
+  --color-aviso: #b45309;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-papel);
+  color: var(--color-tinta);
+  font-family: var(--font-escolar);
+  /* Sin selección de texto ni zoom por doble toque: evita distracciones al tocar. */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* El panel de adultos sí permite seleccionar texto (para copiar la lista de audios). */
+.seleccionable {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 4px solid var(--color-primario);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,67 @@
+import fonemasData from '../content/fonemas.json'
+import rutaData from '../content/ruta.json'
+import m3 from '../content/lecciones/m3-vocales.json'
+import m4 from '../content/lecciones/m4-consonantes.json'
+import m5 from '../content/lecciones/m5-palabras.json'
+import type { Fonema, Leccion, Modulo } from '../types/content'
+import { dividirCV, partirSilaba } from './silabas'
+
+export const fonemas = fonemasData as unknown as Fonema[]
+export const fonemaPorId = new Map(fonemas.map((f) => [f.id, f]))
+
+export const modulos = rutaData.modulos as Modulo[]
+export const ordenConsonantes = rutaData.ordenConsonantes
+
+export const lecciones: Leccion[] = [m3, m4, m5].flatMap((m) => m.lecciones as unknown as Leccion[])
+const leccionPorId = new Map(lecciones.map((l) => [l.id, l]))
+
+export const getLeccion = (id: string) => leccionPorId.get(id)
+export const getModulo = (id: number) => modulos.find((m) => m.id === id)
+
+/** Revisa que el contenido sea coherente. Devuelve la lista de errores (vacía = OK). */
+export function validarContenido(): string[] {
+  const errores: string[] = []
+
+  for (const m of modulos) {
+    for (const id of m.lecciones) {
+      if (!leccionPorId.has(id)) errores.push(`Módulo ${m.id}: la lección "${id}" no existe`)
+    }
+  }
+
+  for (const l of lecciones) {
+    l.pasos.forEach((paso, i) => {
+      const donde = `${l.id} paso ${i + 1}`
+      if (paso.mecanica === 'presentacion_fonema') {
+        if (!fonemaPorId.has(paso.fonema)) errores.push(`${donde}: fonema "${paso.fonema}" no existe`)
+        return
+      }
+      if (paso.mecanica === 'elevador_silabas') {
+        for (const id of [...paso.consonantes, ...paso.vocales]) {
+          if (!fonemaPorId.has(id)) errores.push(`${donde}: fonema "${id}" no existe`)
+        }
+        const n = paso.silabas ?? 1
+        for (const obj of paso.objetivos) {
+          const sils = n === 1 ? [obj.texto] : dividirCV(obj.texto)
+          if (sils.length !== n) {
+            errores.push(`${donde}: "${obj.texto}" no tiene ${n} sílaba(s)`)
+            continue
+          }
+          for (const s of sils) {
+            const { consonante, vocal } = partirSilaba(s)
+            if (!paso.consonantes.includes(consonante) || !paso.vocales.includes(vocal)) {
+              errores.push(`${donde}: "${obj.texto}" no se puede formar con las tiras`)
+            }
+          }
+        }
+        return
+      }
+      errores.push(`${donde}: mecánica desconocida "${(paso as { mecanica: string }).mecanica}"`)
+    })
+  }
+  return errores
+}
+
+if (import.meta.env.DEV) {
+  const errores = validarContenido()
+  if (errores.length) console.error('Contenido con errores:\n' + errores.join('\n'))
+}

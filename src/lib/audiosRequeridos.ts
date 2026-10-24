@@ -1,0 +1,42 @@
+import { fonemas, lecciones } from './contentLoader'
+import { FRASES, urlFeedback, urlFonema, urlPalabra, urlSilaba } from './audio/rutas'
+import { partirSilaba } from './silabas'
+
+export interface AudioRequerido {
+  url: string
+  /** Ruta dentro de /public, tal como debe guardarse el archivo. */
+  archivo: string
+  /** Qué debe decir la grabación. */
+  decir: string
+}
+
+const archivoDe = (url: string) => 'public' + decodeURIComponent(url.slice(import.meta.env.BASE_URL.length - 1))
+
+/** Todas las grabaciones que el contenido actual necesita, sin repetir. */
+export function audiosRequeridos(): AudioRequerido[] {
+  const lista = new Map<string, AudioRequerido>()
+  const agregar = (url: string, decir: string) => {
+    if (!lista.has(url)) lista.set(url, { url, archivo: archivoDe(url), decir })
+  }
+
+  for (const f of fonemas) {
+    agregar(urlFonema(f.id), `Sonido ${f.sonido} (NO el nombre de la letra)`)
+    agregar(urlPalabra(f.ejemplo.palabra), `Palabra "${f.ejemplo.palabra}"`)
+  }
+  for (const l of lecciones) {
+    for (const p of l.pasos) {
+      if (p.mecanica !== 'elevador_silabas') continue
+      for (const c of p.consonantes)
+        for (const v of p.vocales) agregar(urlSilaba(c + v), `Sílaba "${c + v}"`)
+      if ((p.silabas ?? 1) > 1)
+        for (const o of p.objetivos) agregar(urlPalabra(o.texto), `Palabra "${o.texto}"`)
+      else
+        for (const o of p.objetivos) {
+          const { consonante, vocal } = partirSilaba(o.texto)
+          agregar(urlSilaba(consonante + vocal), `Sílaba "${o.texto}"`)
+        }
+    }
+  }
+  for (const [id, texto] of Object.entries(FRASES)) agregar(urlFeedback(id), `Frase "${texto}"`)
+  return [...lista.values()]
+}
