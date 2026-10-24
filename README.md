@@ -24,8 +24,9 @@ npm run build    # versión de producción en dist/
 | Progreso guardado en el dispositivo + panel para adultos con puerta de acceso | ✅ |
 | Bloques de Construcción (arrastrar o tocar, sílabas correctas quedan fijas, lectura sílaba a sílaba al final) | ✅ |
 | Decodificador de color (clave color+forma, mensaje secreto, sílabas separadas y elección de imagen) | ✅ |
-| Módulo 3: vocales · Módulo 4: m s l n f p + repasos con bloques · Módulo 5: familia (bloques), colores (decodificador) y palabras (elevador) | ✅ |
-| Ruleta, Lupa mágica | Pendiente |
+| Lupa mágica (trama roja, lente que la filtra, sílabas sobrantes que se apagan al tocarlas) | ✅ |
+| Módulo 3: vocales · Módulo 4: m s l n f p + repasos con bloques · Módulo 5: familia (bloques), colores (decodificador), detective (lupa) y palabras (elevador) | ✅ |
+| Ruleta silábica | Pendiente |
 | Módulo 1 (motricidad) y Módulo 2 (conciencia fonológica) | Pendiente (bloqueados en el inicio) |
 
 ## Estructura
@@ -45,7 +46,7 @@ tests/              Vitest
 ### Añadir una lección
 
 Agrega un objeto a `src/content/lecciones/*.json` y su `id` al módulo en `ruta.json`. Cada paso declara su
-`mecanica` (`presentacion_fonema`, `elevador_silabas`, `bloques_construccion` o `decodificador_color`). `npm test` valida que los fonemas existan, que cada
+`mecanica` (`presentacion_fonema`, `elevador_silabas`, `bloques_construccion`, `decodificador_color` o `lupa_magica`). `npm test` valida que los fonemas existan, que cada
 objetivo se pueda formar con las tiras del elevador y que ningún distractor de los bloques sea parte de la palabra.
 
 Ejemplo de bloques (`bloques` es opcional; si falta, la palabra se divide sola):
@@ -91,4 +92,5 @@ minúscula y conservan las tildes (`public/audio/palabras/mamá.mp3`).
 - Los bloques se encajan en horizontal (de izquierda a derecha, como se lee) en lugar de apilarse.
 - En el decodificador cada color va acompañado de una forma, para niños con daltonismo. Tras descifrar, la app
   dice las sílabas separadas y el niño elige la imagen: la unión la hace él (lectura indirecta).
+- En la lupa, el primer toque sobre una sílaba escondida solo la descubre; hay que verla antes de elegirla.
 - El arrastre usa Framer Motion en lugar de HTML5 Drag & Drop, que falla en tablets.

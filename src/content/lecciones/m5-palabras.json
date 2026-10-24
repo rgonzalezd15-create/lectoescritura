@@ -135,6 +135,59 @@
       ]
     },
     {
+      "id": "detective-lupa",
+      "modulo": 5,
+      "titulo": "detective",
+      "icono": "🔍",
+      "pasos": [
+        {
+          "mecanica": "lupa_magica",
+          "objetivos": [
+            {
+              "texto": "mapa",
+              "icono": "🗺️",
+              "silabas": [
+                "ma",
+                "pa"
+              ],
+              "distractores": [
+                "so",
+                "li"
+              ]
+            },
+            {
+              "texto": "lupa",
+              "icono": "🔍",
+              "distractores": [
+                "la",
+                "mi",
+                "se"
+              ]
+            },
+            {
+              "texto": "mano",
+              "icono": "✋",
+              "distractores": [
+                "pe",
+                "fo",
+                "nu"
+              ]
+            },
+            {
+              "texto": "sopa",
+              "icono": "🍲",
+              "distractores": [
+                "ma",
+                "pi",
+                "sa",
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "palabras-elevador",
       "modulo": 5,
       "titulo": "palabras",

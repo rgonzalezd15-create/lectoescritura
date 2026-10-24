@@ -85,7 +85,22 @@ export interface PasoDecodificador {
   objetivos: ObjetivoDecodificador[]
 }
 
-export type Paso = PasoPresentacion | PasoElevador | PasoBloques | PasoDecodificador
+export interface ObjetivoLupa {
+  /** Palabra que el detective debe encontrar (`palabra_objetivo`), p. ej. "mapa". */
+  texto: string
+  icono: string
+  /** Sílabas ocultas bajo la trama (`silabas_ocultas`). Si se omite, se divide la palabra. */
+  silabas?: string[]
+  /** Sílabas ocultas que NO forman parte de la palabra. */
+  distractores: string[]
+}
+
+export interface PasoLupa {
+  mecanica: 'lupa_magica'
+  objetivos: ObjetivoLupa[]
+}
+
+export type Paso = PasoPresentacion | PasoElevador | PasoBloques | PasoDecodificador | PasoLupa
 export type Mecanica = Paso['mecanica']
 
 export interface Leccion {

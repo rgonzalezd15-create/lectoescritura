@@ -79,6 +79,17 @@ export function validarContenido(): string[] {
         }
         return
       }
+      if (paso.mecanica === 'lupa_magica') {
+        for (const obj of paso.objetivos) {
+          const sils = silabasDe(obj)
+          if (sils.join('') !== obj.texto) errores.push(`${donde}: las sílabas de "${obj.texto}" no forman la palabra`)
+          if (sils.length + obj.distractores.length > 8) errores.push(`${donde}: "${obj.texto}" esconde más de 8 sílabas`)
+          for (const d of obj.distractores) {
+            if (sils.includes(d)) errores.push(`${donde}: el distractor "${d}" también es parte de "${obj.texto}"`)
+          }
+        }
+        return
+      }
       errores.push(`${donde}: mecánica desconocida "${(paso as { mecanica: string }).mecanica}"`)
     })
   }

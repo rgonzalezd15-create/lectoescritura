@@ -1,6 +1,6 @@
 import { fonemas, lecciones } from './contentLoader'
 import { FRASES, urlFeedback, urlFonema, urlPalabra, urlSilaba } from './audio/rutas'
-import { bloquesDe, partirSilaba } from './silabas'
+import { bloquesDe, partirSilaba, silabasDe } from './silabas'
 
 export interface AudioRequerido {
   url: string
@@ -35,6 +35,13 @@ export function audiosRequeridos(): AudioRequerido[] {
       if (p.mecanica === 'decodificador_color') {
         for (const s of Object.keys(p.clave)) agregar(urlSilaba(s), `Sílaba "${s}"`)
         for (const o of p.objetivos) agregar(urlPalabra(o.texto), `Palabra "${o.texto}"`)
+        continue
+      }
+      if (p.mecanica === 'lupa_magica') {
+        for (const o of p.objetivos) {
+          agregar(urlPalabra(o.texto), `Palabra "${o.texto}"`)
+          for (const s of [...silabasDe(o), ...o.distractores]) agregar(urlSilaba(s), `Sílaba "${s}"`)
+        }
         continue
       }
       if (p.mecanica !== 'elevador_silabas') continue

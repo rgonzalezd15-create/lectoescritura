@@ -3,6 +3,7 @@ import type { Mecanica, Paso, ResultadoPaso } from '../types/content'
 import { BloquesConstruccion } from './BloquesConstruccion/BloquesConstruccion'
 import { DecodificadorColor } from './DecodificadorColor/DecodificadorColor'
 import { ElevadorSilabas } from './ElevadorSilabas/ElevadorSilabas'
+import { LupaMagica } from './LupaMagica/LupaMagica'
 import { PresentacionFonema } from './PresentacionFonema/PresentacionFonema'
 
 export interface PropsMecanica<P extends Paso = Paso> {
@@ -20,6 +21,7 @@ export const MECANICAS: { [M in Mecanica]: ComponentType<PropsMecanica<Extract<P
   elevador_silabas: ElevadorSilabas,
   bloques_construccion: BloquesConstruccion,
   decodificador_color: DecodificadorColor,
+  lupa_magica: LupaMagica,
 }
 
 export function RenderMecanica({ paso, onTerminar }: PropsMecanica) {
