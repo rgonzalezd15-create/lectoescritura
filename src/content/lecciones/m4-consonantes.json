@@ -167,6 +167,35 @@
               "texto": "mo"
             }
           ]
+        },
+        {
+          "mecanica": "bloques_construccion",
+          "objetivos": [
+            {
+              "texto": "mamá",
+              "icono": "👩",
+              "distractores": [
+                "pa",
+                "so"
+              ]
+            },
+            {
+              "texto": "sala",
+              "icono": "🛋️",
+              "distractores": [
+                "lo",
+                "me"
+              ]
+            },
+            {
+              "texto": "maleta",
+              "icono": "🧳",
+              "distractores": [
+                "mi",
+                "su"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -334,6 +363,35 @@
             },
             {
               "texto": "fa"
+            }
+          ]
+        },
+        {
+          "mecanica": "bloques_construccion",
+          "objetivos": [
+            {
+              "texto": "papá",
+              "icono": "👨",
+              "distractores": [
+                "fa",
+                "ne"
+              ]
+            },
+            {
+              "texto": "pino",
+              "icono": "🌲",
+              "distractores": [
+                "pa",
+                "fu"
+              ]
+            },
+            {
+              "texto": "pepino",
+              "icono": "🥒",
+              "distractores": [
+                "na",
+                "fo"
+              ]
             }
           ]
         }

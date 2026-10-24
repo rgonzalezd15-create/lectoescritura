@@ -1,16 +1,92 @@
 {
   "ordenConsonantes": [
-    ["m", "s", "l", "n", "f", "p"],
-    ["t", "d"],
-    ["r"],
-    ["g", "j", "ñ", "w"],
-    ["c", "k", "q", "z", "v", "h", "rr", "x", "y"]
+    [
+      "m",
+      "s",
+      "l",
+      "n",
+      "f",
+      "p"
+    ],
+    [
+      "t",
+      "d"
+    ],
+    [
+      "r"
+    ],
+    [
+      "g",
+      "j",
+      "ñ",
+      "w"
+    ],
+    [
+      "c",
+      "k",
+      "q",
+      "z",
+      "v",
+      "h",
+      "rr",
+      "x",
+      "y"
+    ]
   ],
   "modulos": [
-    { "id": 1, "nombre": "Motricidad y Coordinación", "icono": "✏️", "color": "#7c3aed", "disponible": false, "lecciones": [] },
-    { "id": 2, "nombre": "Conciencia Fonológica", "icono": "👂", "color": "#0e7490", "disponible": false, "lecciones": [] },
-    { "id": 3, "nombre": "Vocales en Acción", "icono": "🍇", "color": "#c2410c", "disponible": true, "lecciones": ["vocales"] },
-    { "id": 4, "nombre": "Consonantes y Sílabas", "icono": "🛗", "color": "#1d4ed8", "disponible": true, "lecciones": ["cons-m", "cons-s", "cons-l", "repaso-msl", "cons-n", "cons-f", "cons-p", "repaso-nfp"] },
-    { "id": 5, "nombre": "Palabras y Frases", "icono": "🗺️", "color": "#15803d", "disponible": true, "lecciones": ["palabras-elevador"] }
+    {
+      "id": 1,
+      "nombre": "Motricidad y Coordinación",
+      "icono": "✏️",
+      "color": "#7c3aed",
+      "disponible": false,
+      "lecciones": []
+    },
+    {
+      "id": 2,
+      "nombre": "Conciencia Fonológica",
+      "icono": "👂",
+      "color": "#0e7490",
+      "disponible": false,
+      "lecciones": []
+    },
+    {
+      "id": 3,
+      "nombre": "Vocales en Acción",
+      "icono": "🍇",
+      "color": "#c2410c",
+      "disponible": true,
+      "lecciones": [
+        "vocales"
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Consonantes y Sílabas",
+      "icono": "🛗",
+      "color": "#1d4ed8",
+      "disponible": true,
+      "lecciones": [
+        "cons-m",
+        "cons-s",
+        "cons-l",
+        "repaso-msl",
+        "cons-n",
+        "cons-f",
+        "cons-p",
+        "repaso-nfp"
+      ]
+    },
+    {
+      "id": 5,
+      "nombre": "Palabras y Frases",
+      "icono": "🗺️",
+      "color": "#15803d",
+      "disponible": true,
+      "lecciones": [
+        "familia-bloques",
+        "palabras-elevador"
+      ]
+    }
   ]
 }

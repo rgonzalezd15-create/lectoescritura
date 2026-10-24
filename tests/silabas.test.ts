@@ -16,3 +16,12 @@ describe('sílabas', () => {
     expect(partirSilaba('lla')).toEqual({ consonante: 'll', vocal: 'a' })
   })
 })
+
+describe('bloques', () => {
+  it('usa los bloques del JSON o divide la palabra', async () => {
+    const { bloquesDe, barajar } = await import('../src/lib/silabas')
+    expect(bloquesDe({ texto: 'mamá', bloques: ['ma', 'má'] })).toEqual(['ma', 'má'])
+    expect(bloquesDe({ texto: 'maleta' })).toEqual(['ma', 'le', 'ta'])
+    expect(barajar([1, 2, 3]).sort()).toEqual([1, 2, 3])
+  })
+})

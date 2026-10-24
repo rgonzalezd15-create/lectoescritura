@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { Celebracion, IntentaOtraVez } from '../../components/feedback/Celebracion'
 import { BigButton } from '../../components/ui/BigButton'
+import { PuntosRetos } from '../../components/ui/PuntosRetos'
 import { audio } from '../../lib/audio/AudioEngine'
 import { fonemaPorId } from '../../lib/contentLoader'
 import { dividirCV, partirSilaba, unir } from '../../lib/silabas'
@@ -36,11 +37,7 @@ export function ElevadorSilabas({ paso, onTerminar }: Props) {
 
   return (
     <div className="flex flex-1 flex-col items-center gap-2">
-      <div className="flex gap-2" aria-label={`Reto ${k + 1} de ${paso.objetivos.length}`}>
-        {paso.objetivos.map((_, i) => (
-          <span key={i} className={`h-3 w-3 rounded-full ${i < k ? 'bg-exito' : i === k ? 'bg-primario' : 'bg-suave'}`} />
-        ))}
-      </div>
+      <PuntosRetos actual={k} total={paso.objetivos.length} />
       <Ronda key={k} paso={paso} objetivo={paso.objetivos[k]} onFin={alTerminarRonda} />
     </div>
   )

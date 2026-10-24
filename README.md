@@ -22,8 +22,9 @@ npm run build    # versión de producción en dist/
 | Reproductor fonético (letra minúscula + sonido + gesto de boca + palabra ejemplo) | ✅ |
 | Elevador de Sílabas (arrastre táctil y flechas, dictado, ayuda tras 2 intentos, 1 o 2 sílabas) | ✅ |
 | Progreso guardado en el dispositivo + panel para adultos con puerta de acceso | ✅ |
-| Módulo 3: vocales · Módulo 4: m s l n f p + repasos · Módulo 5: palabras con el elevador | ✅ |
-| Ruleta, Lupa mágica, Decodificador de color, Bloques de construcción | Pendiente |
+| Bloques de Construcción (arrastrar o tocar, sílabas correctas quedan fijas, lectura sílaba a sílaba al final) | ✅ |
+| Módulo 3: vocales · Módulo 4: m s l n f p + repasos con bloques · Módulo 5: familia (bloques) y palabras (elevador) | ✅ |
+| Ruleta, Lupa mágica, Decodificador de color | Pendiente |
 | Módulo 1 (motricidad) y Módulo 2 (conciencia fonológica) | Pendiente (bloqueados en el inicio) |
 
 ## Estructura
@@ -43,8 +44,16 @@ tests/              Vitest
 ### Añadir una lección
 
 Agrega un objeto a `src/content/lecciones/*.json` y su `id` al módulo en `ruta.json`. Cada paso declara su
-`mecanica` (`presentacion_fonema` o `elevador_silabas`). `npm test` valida que los fonemas existan y que cada
-objetivo se pueda formar con las tiras del elevador.
+`mecanica` (`presentacion_fonema`, `elevador_silabas` o `bloques_construccion`). `npm test` valida que los fonemas existan, que cada
+objetivo se pueda formar con las tiras del elevador y que ningún distractor de los bloques sea parte de la palabra.
+
+Ejemplo de bloques (`bloques` es opcional; si falta, la palabra se divide sola):
+
+```json
+{ "mecanica": "bloques_construccion", "objetivos": [
+  { "texto": "mamá", "icono": "👩", "bloques": ["ma", "má"], "distractores": ["pa", "so"] }
+] }
+```
 
 ### Añadir una mecánica
 
@@ -59,7 +68,7 @@ Todavía **no hay grabaciones**. Mientras falte un archivo:
 - **consonantes** usan un sonido sintético aproximado (zumbido para /mmm/, siseo para /sss/…). Nunca se usa la
   voz del sistema para una consonante suelta, porque diría su nombre. Una prueba automática lo verifica.
 
-La lista exacta de archivos a grabar (62 hoy) aparece en **Panel de adultos → Audios por grabar**, con la ruta
+La lista exacta de archivos a grabar aparece en **Panel de adultos → Audios por grabar**, con la ruta
 y lo que debe decir cada uno. Formato: MP3, voz humana clara, sin silencio al inicio. Los nombres van en
 minúscula y conservan las tildes (`public/audio/palabras/mamá.mp3`).
 
@@ -68,4 +77,5 @@ minúscula y conservan las tildes (`public/audio/palabras/mamá.mp3`).
 - Ruta de consonantes sin repeticiones (la guía repetía N, F y D): `m s l n f p → t d → r → g j ñ w → c k q z v h rr x y`.
 - `/p/` está en el bloque 1 pero marcada `continuo: false` (no se puede alargar).
 - Los audios se movieron de `assets/audio/` a `public/audio/` y se añadieron sílabas y frases de refuerzo.
+- Los bloques se encajan en horizontal (de izquierda a derecha, como se lee) en lugar de apilarse.
 - El arrastre usa Framer Motion en lugar de HTML5 Drag & Drop, que falla en tablets.

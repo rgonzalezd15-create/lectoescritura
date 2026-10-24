@@ -26,3 +26,16 @@ export function dividirCV(palabra: string): string[] {
 export function partirSilaba(silaba: string): { consonante: string; vocal: string } {
   return { consonante: silaba.slice(0, -1), vocal: silaba.slice(-1) }
 }
+
+/** Sílabas de un objetivo de Bloques: las indicadas en el JSON o, si no, ma·má. */
+export const bloquesDe = (o: { texto: string; bloques?: string[] }) => o.bloques ?? dividirCV(o.texto)
+
+/** Copia barajada (Fisher–Yates). */
+export function barajar<T>(lista: T[]): T[] {
+  const r = [...lista]
+  for (let i = r.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[r[i], r[j]] = [r[j], r[i]]
+  }
+  return r
+}

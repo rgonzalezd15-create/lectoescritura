@@ -8,7 +8,7 @@ import { Estrellas } from '../components/ui/Estrellas'
 import { audio } from '../lib/audio/AudioEngine'
 import { urlFonema, urlPalabra, urlSilaba } from '../lib/audio/rutas'
 import { getLeccion } from '../lib/contentLoader'
-import { dividirCV } from '../lib/silabas'
+import { bloquesDe, dividirCV } from '../lib/silabas'
 import { RenderMecanica } from '../mechanics'
 import { estrellasPara, useProgress } from '../store/progressStore'
 import type { Leccion, ResultadoPaso } from '../types/content'
@@ -18,7 +18,9 @@ function audiosDeLeccion(l: Leccion): string[] {
   const urls: string[] = []
   for (const p of l.pasos) {
     if (p.mecanica === 'presentacion_fonema') urls.push(urlFonema(p.fonema))
-    else {
+    else if (p.mecanica === 'bloques_construccion') {
+      for (const o of p.objetivos) urls.push(urlPalabra(o.texto), ...[...bloquesDe(o), ...o.distractores].map(urlSilaba))
+    } else {
       urls.push(...[...p.consonantes, ...p.vocales].map(urlFonema))
       for (const o of p.objetivos) {
         if ((p.silabas ?? 1) === 1) urls.push(urlSilaba(o.texto))

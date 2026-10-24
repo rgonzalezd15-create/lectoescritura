@@ -4,7 +4,7 @@ import m3 from '../content/lecciones/m3-vocales.json'
 import m4 from '../content/lecciones/m4-consonantes.json'
 import m5 from '../content/lecciones/m5-palabras.json'
 import type { Fonema, Leccion, Modulo } from '../types/content'
-import { dividirCV, partirSilaba } from './silabas'
+import { bloquesDe, dividirCV, partirSilaba } from './silabas'
 
 export const fonemas = fonemasData as unknown as Fonema[]
 export const fonemaPorId = new Map(fonemas.map((f) => [f.id, f]))
@@ -51,6 +51,16 @@ export function validarContenido(): string[] {
             if (!paso.consonantes.includes(consonante) || !paso.vocales.includes(vocal)) {
               errores.push(`${donde}: "${obj.texto}" no se puede formar con las tiras`)
             }
+          }
+        }
+        return
+      }
+      if (paso.mecanica === 'bloques_construccion') {
+        for (const obj of paso.objetivos) {
+          const sils = bloquesDe(obj)
+          if (sils.join('') !== obj.texto) errores.push(`${donde}: los bloques de "${obj.texto}" no forman la palabra`)
+          for (const d of obj.distractores) {
+            if (sils.includes(d)) errores.push(`${donde}: el distractor "${d}" también es parte de "${obj.texto}"`)
           }
         }
         return

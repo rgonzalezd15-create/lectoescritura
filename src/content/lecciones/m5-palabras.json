@@ -2,9 +2,66 @@
   "modulo": 5,
   "lecciones": [
     {
+      "id": "familia-bloques",
+      "modulo": 5,
+      "titulo": "familia",
+      "icono": "🧱",
+      "pasos": [
+        {
+          "mecanica": "bloques_construccion",
+          "objetivos": [
+            {
+              "texto": "mamá",
+              "icono": "👩",
+              "bloques": [
+                "ma",
+                "má"
+              ],
+              "distractores": [
+                "pa",
+                "so"
+              ]
+            },
+            {
+              "texto": "papá",
+              "icono": "👨",
+              "distractores": [
+                "ma",
+                "lo"
+              ]
+            },
+            {
+              "texto": "mapa",
+              "icono": "🗺️",
+              "distractores": [
+                "sa",
+                "pi"
+              ]
+            },
+            {
+              "texto": "sopa",
+              "icono": "🍲",
+              "distractores": [
+                "su",
+                "ma"
+              ]
+            },
+            {
+              "texto": "sapo",
+              "icono": "🐸",
+              "distractores": [
+                "so",
+                "pe"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "palabras-elevador",
       "modulo": 5,
-      "titulo": "Palabras",
+      "titulo": "palabras",
       "icono": "🗺️",
       "pasos": [
         {

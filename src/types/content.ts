@@ -53,7 +53,22 @@ export interface PasoElevador {
   objetivos: Objetivo[]
 }
 
-export type Paso = PasoPresentacion | PasoElevador
+export interface ObjetivoBloques {
+  /** Palabra a construir, p. ej. "mamá". */
+  texto: string
+  icono?: string
+  /** Sílabas en orden. Si se omite, se divide la palabra (ma·má). */
+  bloques?: string[]
+  /** Sílabas extra que no forman parte de la palabra. */
+  distractores: string[]
+}
+
+export interface PasoBloques {
+  mecanica: 'bloques_construccion'
+  objetivos: ObjetivoBloques[]
+}
+
+export type Paso = PasoPresentacion | PasoElevador | PasoBloques
 export type Mecanica = Paso['mecanica']
 
 export interface Leccion {
