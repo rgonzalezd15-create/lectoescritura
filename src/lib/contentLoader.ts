@@ -4,7 +4,7 @@ import m3 from '../content/lecciones/m3-vocales.json'
 import m4 from '../content/lecciones/m4-consonantes.json'
 import m5 from '../content/lecciones/m5-palabras.json'
 import type { Fonema, Leccion, Modulo } from '../types/content'
-import { bloquesDe, dividirCV, partirSilaba } from './silabas'
+import { bloquesDe, dividirCV, partirSilaba, silabasDe } from './silabas'
 
 export const fonemas = fonemasData as unknown as Fonema[]
 export const fonemaPorId = new Map(fonemas.map((f) => [f.id, f]))
@@ -62,6 +62,20 @@ export function validarContenido(): string[] {
           for (const d of obj.distractores) {
             if (sils.includes(d)) errores.push(`${donde}: el distractor "${d}" también es parte de "${obj.texto}"`)
           }
+        }
+        return
+      }
+      if (paso.mecanica === 'decodificador_color') {
+        const colores = Object.values(paso.clave)
+        if (new Set(colores).size !== colores.length) errores.push(`${donde}: hay colores repetidos en la clave`)
+        if (colores.length > 6) errores.push(`${donde}: la clave admite como máximo 6 colores`)
+        for (const obj of paso.objetivos) {
+          const sils = silabasDe(obj)
+          if (sils.join('') !== obj.texto) errores.push(`${donde}: las sílabas de "${obj.texto}" no forman la palabra`)
+          for (const s of sils) {
+            if (!(s in paso.clave)) errores.push(`${donde}: la sílaba "${s}" de "${obj.texto}" no está en la clave`)
+          }
+          if (obj.distractores.some((d) => d.texto === obj.texto)) errores.push(`${donde}: "${obj.texto}" está entre sus distractores`)
         }
         return
       }

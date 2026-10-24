@@ -59,6 +59,82 @@
       ]
     },
     {
+      "id": "colores-decodificador",
+      "modulo": 5,
+      "titulo": "colores",
+      "icono": "🎨",
+      "pasos": [
+        {
+          "mecanica": "decodificador_color",
+          "clave": {
+            "so": "#3B82F6",
+            "pa": "#EF4444",
+            "ma": "#16A34A",
+            "sa": "#EAB308",
+            "po": "#9333EA"
+          },
+          "objetivos": [
+            {
+              "texto": "sopa",
+              "icono": "🍲",
+              "distractores": [
+                {
+                  "texto": "sapo",
+                  "icono": "🐸"
+                },
+                {
+                  "texto": "mapa",
+                  "icono": "🗺️"
+                }
+              ]
+            },
+            {
+              "texto": "mapa",
+              "icono": "🗺️",
+              "distractores": [
+                {
+                  "texto": "sopa",
+                  "icono": "🍲"
+                },
+                {
+                  "texto": "paso",
+                  "icono": "👣"
+                }
+              ]
+            },
+            {
+              "texto": "sapo",
+              "icono": "🐸",
+              "distractores": [
+                {
+                  "texto": "paso",
+                  "icono": "👣"
+                },
+                {
+                  "texto": "sopa",
+                  "icono": "🍲"
+                }
+              ]
+            },
+            {
+              "texto": "paso",
+              "icono": "👣",
+              "distractores": [
+                {
+                  "texto": "sapo",
+                  "icono": "🐸"
+                },
+                {
+                  "texto": "mapa",
+                  "icono": "🗺️"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "palabras-elevador",
       "modulo": 5,
       "titulo": "palabras",

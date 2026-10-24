@@ -68,7 +68,24 @@ export interface PasoBloques {
   objetivos: ObjetivoBloques[]
 }
 
-export type Paso = PasoPresentacion | PasoElevador | PasoBloques
+export interface ObjetivoDecodificador {
+  /** Palabra escondida en el mensaje de colores, p. ej. "sopa". */
+  texto: string
+  icono: string
+  /** Sílabas en orden. Si se omite, se divide la palabra (so·pa). */
+  silabas?: string[]
+  /** Imágenes alternativas para elegir (deben ser otras palabras). */
+  distractores: { texto: string; icono: string }[]
+}
+
+export interface PasoDecodificador {
+  mecanica: 'decodificador_color'
+  /** Clave de colores: sílaba → color (equivale a `mapa_colores` del esquema original). */
+  clave: Record<string, string>
+  objetivos: ObjetivoDecodificador[]
+}
+
+export type Paso = PasoPresentacion | PasoElevador | PasoBloques | PasoDecodificador
 export type Mecanica = Paso['mecanica']
 
 export interface Leccion {

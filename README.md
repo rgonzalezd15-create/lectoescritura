@@ -23,8 +23,9 @@ npm run build    # versión de producción en dist/
 | Elevador de Sílabas (arrastre táctil y flechas, dictado, ayuda tras 2 intentos, 1 o 2 sílabas) | ✅ |
 | Progreso guardado en el dispositivo + panel para adultos con puerta de acceso | ✅ |
 | Bloques de Construcción (arrastrar o tocar, sílabas correctas quedan fijas, lectura sílaba a sílaba al final) | ✅ |
-| Módulo 3: vocales · Módulo 4: m s l n f p + repasos con bloques · Módulo 5: familia (bloques) y palabras (elevador) | ✅ |
-| Ruleta, Lupa mágica, Decodificador de color | Pendiente |
+| Decodificador de color (clave color+forma, mensaje secreto, sílabas separadas y elección de imagen) | ✅ |
+| Módulo 3: vocales · Módulo 4: m s l n f p + repasos con bloques · Módulo 5: familia (bloques), colores (decodificador) y palabras (elevador) | ✅ |
+| Ruleta, Lupa mágica | Pendiente |
 | Módulo 1 (motricidad) y Módulo 2 (conciencia fonológica) | Pendiente (bloqueados en el inicio) |
 
 ## Estructura
@@ -44,7 +45,7 @@ tests/              Vitest
 ### Añadir una lección
 
 Agrega un objeto a `src/content/lecciones/*.json` y su `id` al módulo en `ruta.json`. Cada paso declara su
-`mecanica` (`presentacion_fonema`, `elevador_silabas` o `bloques_construccion`). `npm test` valida que los fonemas existan, que cada
+`mecanica` (`presentacion_fonema`, `elevador_silabas`, `bloques_construccion` o `decodificador_color`). `npm test` valida que los fonemas existan, que cada
 objetivo se pueda formar con las tiras del elevador y que ningún distractor de los bloques sea parte de la palabra.
 
 Ejemplo de bloques (`bloques` es opcional; si falta, la palabra se divide sola):
@@ -53,6 +54,16 @@ Ejemplo de bloques (`bloques` es opcional; si falta, la palabra se divide sola):
 { "mecanica": "bloques_construccion", "objetivos": [
   { "texto": "mamá", "icono": "👩", "bloques": ["ma", "má"], "distractores": ["pa", "so"] }
 ] }
+```
+
+Ejemplo de decodificador (máximo 6 colores; cada uno recibe además una forma ● ▲ ■ ★ ♥ ◆):
+
+```json
+{ "mecanica": "decodificador_color",
+  "clave": { "so": "#3B82F6", "pa": "#EF4444" },
+  "objetivos": [
+    { "texto": "sopa", "icono": "🍲", "distractores": [{ "texto": "sapo", "icono": "🐸" }] }
+  ] }
 ```
 
 ### Añadir una mecánica
@@ -78,4 +89,6 @@ minúscula y conservan las tildes (`public/audio/palabras/mamá.mp3`).
 - `/p/` está en el bloque 1 pero marcada `continuo: false` (no se puede alargar).
 - Los audios se movieron de `assets/audio/` a `public/audio/` y se añadieron sílabas y frases de refuerzo.
 - Los bloques se encajan en horizontal (de izquierda a derecha, como se lee) en lugar de apilarse.
+- En el decodificador cada color va acompañado de una forma, para niños con daltonismo. Tras descifrar, la app
+  dice las sílabas separadas y el niño elige la imagen: la unión la hace él (lectura indirecta).
 - El arrastre usa Framer Motion en lugar de HTML5 Drag & Drop, que falla en tablets.

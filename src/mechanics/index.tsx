@@ -1,6 +1,7 @@
 import type { ComponentType } from 'react'
 import type { Mecanica, Paso, ResultadoPaso } from '../types/content'
 import { BloquesConstruccion } from './BloquesConstruccion/BloquesConstruccion'
+import { DecodificadorColor } from './DecodificadorColor/DecodificadorColor'
 import { ElevadorSilabas } from './ElevadorSilabas/ElevadorSilabas'
 import { PresentacionFonema } from './PresentacionFonema/PresentacionFonema'
 
@@ -18,6 +19,7 @@ export const MECANICAS: { [M in Mecanica]: ComponentType<PropsMecanica<Extract<P
   presentacion_fonema: PresentacionFonema,
   elevador_silabas: ElevadorSilabas,
   bloques_construccion: BloquesConstruccion,
+  decodificador_color: DecodificadorColor,
 }
 
 export function RenderMecanica({ paso, onTerminar }: PropsMecanica) {

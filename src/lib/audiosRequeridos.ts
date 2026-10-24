@@ -32,6 +32,11 @@ export function audiosRequeridos(): AudioRequerido[] {
         }
         continue
       }
+      if (p.mecanica === 'decodificador_color') {
+        for (const s of Object.keys(p.clave)) agregar(urlSilaba(s), `Sílaba "${s}"`)
+        for (const o of p.objetivos) agregar(urlPalabra(o.texto), `Palabra "${o.texto}"`)
+        continue
+      }
       if (p.mecanica !== 'elevador_silabas') continue
       for (const c of p.consonantes)
         for (const v of p.vocales) agregar(urlSilaba(c + v), `Sílaba "${c + v}"`)

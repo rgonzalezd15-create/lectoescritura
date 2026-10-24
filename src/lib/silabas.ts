@@ -39,3 +39,6 @@ export function barajar<T>(lista: T[]): T[] {
   }
   return r
 }
+
+/** Sílabas de un objetivo del Decodificador: las indicadas o, si no, so·pa. */
+export const silabasDe = (o: { texto: string; silabas?: string[] }) => o.silabas ?? dividirCV(o.texto)
