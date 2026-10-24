@@ -44,6 +44,14 @@ export function audiosRequeridos(): AudioRequerido[] {
         }
         continue
       }
+      if (p.mecanica === 'ruleta_silabica') {
+        for (const s of [...p.primera, ...p.segunda]) agregar(urlSilaba(s), `Sílaba "${s}"`)
+        const reales = new Set(p.palabras.map((x) => x.texto))
+        for (const a of p.primera)
+          for (const b of p.segunda)
+            agregar(urlPalabra(a + b), reales.has(a + b) ? `Palabra "${a + b}"` : `Combinación sin sentido "${a + b}" (leerla tal cual)`)
+        continue
+      }
       if (p.mecanica !== 'elevador_silabas') continue
       for (const c of p.consonantes)
         for (const v of p.vocales) agregar(urlSilaba(c + v), `Sílaba "${c + v}"`)

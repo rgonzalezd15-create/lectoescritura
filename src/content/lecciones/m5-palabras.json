@@ -188,6 +188,56 @@
       ]
     },
     {
+      "id": "ruleta",
+      "modulo": 5,
+      "titulo": "ruleta",
+      "icono": "🎡",
+      "pasos": [
+        {
+          "mecanica": "ruleta_silabica",
+          "primera": [
+            "ma",
+            "pa",
+            "sa"
+          ],
+          "segunda": [
+            "pa",
+            "no",
+            "la",
+            "fo"
+          ],
+          "meta": 5,
+          "palabras": [
+            {
+              "texto": "mapa",
+              "icono": "🗺️"
+            },
+            {
+              "texto": "mano",
+              "icono": "✋"
+            },
+            {
+              "texto": "mala"
+            },
+            {
+              "texto": "papa",
+              "icono": "🥔"
+            },
+            {
+              "texto": "pala"
+            },
+            {
+              "texto": "sano"
+            },
+            {
+              "texto": "sala",
+              "icono": "🛋️"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "palabras-elevador",
       "modulo": 5,
       "titulo": "palabras",

@@ -100,7 +100,22 @@ export interface PasoLupa {
   objetivos: ObjetivoLupa[]
 }
 
-export type Paso = PasoPresentacion | PasoElevador | PasoBloques | PasoDecodificador | PasoLupa
+export interface PasoRuleta {
+  mecanica: 'ruleta_silabica'
+  /** Primera sílaba: anillo de afuera (queda arriba en la ventana). */
+  primera: string[]
+  /** Segunda sílaba: rueda de adentro (queda debajo). */
+  segunda: string[]
+  /**
+   * TODAS las palabras reales que se pueden formar (primera + segunda).
+   * Si falta una, la app diría "no es palabra" a una palabra de verdad.
+   */
+  palabras: Objetivo[]
+  /** Cuántas palabras hay que encontrar (por defecto, hasta 5). */
+  meta?: number
+}
+
+export type Paso = PasoPresentacion | PasoElevador | PasoBloques | PasoDecodificador | PasoLupa | PasoRuleta
 export type Mecanica = Paso['mecanica']
 
 export interface Leccion {

@@ -24,6 +24,9 @@ function audiosDeLeccion(l: Leccion): string[] {
       for (const o of p.objetivos) urls.push(urlPalabra(o.texto), ...silabasDe(o).map(urlSilaba))
     } else if (p.mecanica === 'lupa_magica') {
       for (const o of p.objetivos) urls.push(urlPalabra(o.texto), ...[...silabasDe(o), ...o.distractores].map(urlSilaba))
+    } else if (p.mecanica === 'ruleta_silabica') {
+      urls.push(...[...p.primera, ...p.segunda].map(urlSilaba))
+      for (const a of p.primera) for (const b of p.segunda) urls.push(urlPalabra(a + b))
     } else {
       urls.push(...[...p.consonantes, ...p.vocales].map(urlFonema))
       for (const o of p.objetivos) {

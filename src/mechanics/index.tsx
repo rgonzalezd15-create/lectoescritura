@@ -5,6 +5,7 @@ import { DecodificadorColor } from './DecodificadorColor/DecodificadorColor'
 import { ElevadorSilabas } from './ElevadorSilabas/ElevadorSilabas'
 import { LupaMagica } from './LupaMagica/LupaMagica'
 import { PresentacionFonema } from './PresentacionFonema/PresentacionFonema'
+import { RuletaSilabica } from './RuletaSilabica/RuletaSilabica'
 
 export interface PropsMecanica<P extends Paso = Paso> {
   paso: P
@@ -22,6 +23,7 @@ export const MECANICAS: { [M in Mecanica]: ComponentType<PropsMecanica<Extract<P
   bloques_construccion: BloquesConstruccion,
   decodificador_color: DecodificadorColor,
   lupa_magica: LupaMagica,
+  ruleta_silabica: RuletaSilabica,
 }
 
 export function RenderMecanica({ paso, onTerminar }: PropsMecanica) {

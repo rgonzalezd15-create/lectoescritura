@@ -90,6 +90,19 @@ export function validarContenido(): string[] {
         }
         return
       }
+      if (paso.mecanica === 'ruleta_silabica') {
+        const combos = new Set(paso.primera.flatMap((a) => paso.segunda.map((b) => a + b)))
+        for (const [nombre, rueda] of [['de afuera', paso.primera], ['de adentro', paso.segunda]] as const) {
+          if (rueda.length < 2 || rueda.length > 8) errores.push(`${donde}: la rueda ${nombre} debe tener de 2 a 8 sílabas`)
+          if (new Set(rueda).size !== rueda.length) errores.push(`${donde}: la rueda ${nombre} repite sílabas`)
+        }
+        for (const p of paso.palabras) {
+          if (!combos.has(p.texto)) errores.push(`${donde}: "${p.texto}" no se puede formar con la ruleta`)
+        }
+        if ((paso.meta ?? 5) > paso.palabras.length && paso.meta !== undefined)
+          errores.push(`${donde}: la meta (${paso.meta}) supera las palabras disponibles`)
+        return
+      }
       errores.push(`${donde}: mecánica desconocida "${(paso as { mecanica: string }).mecanica}"`)
     })
   }
