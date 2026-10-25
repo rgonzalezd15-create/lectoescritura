@@ -28,7 +28,8 @@ npm run build    # versión de producción en dist/
 | Lupa mágica (trama roja, lente que la filtra, sílabas sobrantes que se apagan al tocarlas) | ✅ |
 | Ruleta silábica (dos ruedas concéntricas, giro con el dedo o 🎲, álbum de palabras reales) | ✅ |
 | Módulo 3: vocales · Módulo 4: m s l n f p + repasos con bloques · Módulo 5: familia (bloques), colores (decodificador), detective (lupa), ruleta y palabras (elevador) | ✅ |
-| Módulo 1 (motricidad) y Módulo 2 (conciencia fonológica) | Pendiente (bloqueados en el inicio) |
+| Módulo 1 · Motricidad: caminos con el dedo (izquierda → derecha), unir puntos, ¿cuál es diferente? (espejo, de cabeza, tamaño; incluye p/q) | ✅ |
+| Módulo 2 · Conciencia fonológica: palmadas (sílabas con tambor), sonido inicial, rimas, sonidos parecidos (pino/vino, dos/tos) | ✅ |
 
 ## Estructura
 
@@ -47,7 +48,8 @@ tests/              Vitest
 ### Añadir una lección
 
 Agrega un objeto a `src/content/lecciones/*.json` y su `id` al módulo en `ruta.json`. Cada paso declara su
-`mecanica` (`presentacion_fonema`, `elevador_silabas`, `bloques_construccion`, `decodificador_color`, `lupa_magica` o `ruleta_silabica`). `npm test` valida que los fonemas existan, que cada
+`mecanica` (`presentacion_fonema`, `elevador_silabas`, `bloques_construccion`, `decodificador_color`, `lupa_magica`, `ruleta_silabica`, `trazo_guiado`, `unir_puntos`,
+`encuentra_diferente`, `escucha_y_elige` o `palmadas`). `npm test` valida que los fonemas existan, que cada
 objetivo se pueda formar con las tiras del elevador y que ningún distractor de los bloques sea parte de la palabra.
 
 Ejemplo de bloques (`bloques` es opcional; si falta, la palabra se divide sola):
@@ -75,6 +77,10 @@ falta una, la app le diría al niño que no es palabra. Ojo con el seseo: "maso"
 { "mecanica": "ruleta_silabica", "primera": ["ma", "pa", "sa"], "segunda": ["pa", "no", "la", "fo"], "meta": 5,
   "palabras": [{ "texto": "mapa", "icono": "🗺️" }, { "texto": "mala" }] }
 ```
+
+En `escucha_y_elige` con modo `sonido_inicial`, la prueba exige que las opciones correctas sean exactamente las que
+empiezan con esa letra. Evita palabras con c, z o h al inicio: con el seseo, "cielo" suena /s/ pero no empieza con s.
+En `palmadas` la división silábica se escribe a mano (`["e", "le", "fan", "te"]`).
 
 ### Añadir una mecánica
 
@@ -104,4 +110,6 @@ minúscula y conservan las tildes (`public/audio/palabras/mamá.mp3`).
 - En la lupa, el primer toque sobre una sílaba escondida solo la descubre; hay que verla antes de elegirla.
 - En la ruleta, el anillo de afuera lleva la primera sílaba y la rueda de adentro la segunda, para que la ventana
   se lea en orden de arriba abajo.
+- Módulo 1: si el dedo se sale del camino, el personaje se queda donde iba (no se pierde lo avanzado) y se toleran
+  hasta 2 salidas sin bajar la puntuación.
 - El arrastre usa Framer Motion en lugar de HTML5 Drag & Drop, que falla en tablets.

@@ -16,7 +16,7 @@ const retos = [['mapa', ['ma', 'pa'], 'so'], ['lupa', ['lu', 'pa'], 'mi'], ['man
     const card = page.locator('[aria-label="Tarjeta secreta: pasa la lupa"]')
     const llenos = () => page.locator('[aria-label="Palabra encontrada"] span').count()
     const chip = (s) => page.getByRole('button', { name: `Sílaba ${s}`, exact: true }).first()
-    for (const [k, [w, sils, error]] of retos.entries()) {
+    for (const [k, [, sils, error]] of retos.entries()) {
       if (k === 2) {
         // Un solo toque sobre una sílaba escondida: la descubre pero NO la elige
         await page.getByRole('button', { name: 'Escondite 1', exact: true }).click({ force: true })

@@ -1,0 +1,235 @@
+{
+  "modulo": 1,
+  "lecciones": [
+    {
+      "id": "m1-caminos",
+      "modulo": 1,
+      "titulo": "caminos",
+      "icono": "🐝",
+      "pasos": [
+        {
+          "mecanica": "trazo_guiado",
+          "trazos": [
+            {
+              "forma": "linea",
+              "inicio": "🐝",
+              "fin": "🌸"
+            },
+            {
+              "forma": "ondas",
+              "inicio": "🐟",
+              "fin": "🐚"
+            },
+            {
+              "forma": "arcos",
+              "inicio": "🐒",
+              "fin": "🍌"
+            },
+            {
+              "forma": "montanas",
+              "inicio": "🐌",
+              "fin": "🍃"
+            },
+            {
+              "forma": "zigzag",
+              "inicio": "🐇",
+              "fin": "🥕"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m1-puntos",
+      "modulo": 1,
+      "titulo": "puntos",
+      "icono": "⭐",
+      "pasos": [
+        {
+          "mecanica": "unir_puntos",
+          "dibujos": [
+            {
+              "icono": "🏠",
+              "palabra": "casa",
+              "puntos": [
+                [
+                  15,
+                  92
+                ],
+                [
+                  15,
+                  45
+                ],
+                [
+                  50,
+                  10
+                ],
+                [
+                  85,
+                  45
+                ],
+                [
+                  85,
+                  92
+                ]
+              ]
+            },
+            {
+              "icono": "🪁",
+              "palabra": "cometa",
+              "puntos": [
+                [
+                  50,
+                  6
+                ],
+                [
+                  86,
+                  44
+                ],
+                [
+                  50,
+                  94
+                ],
+                [
+                  14,
+                  44
+                ]
+              ]
+            },
+            {
+              "icono": "🐟",
+              "palabra": "pez",
+              "puntos": [
+                [
+                  8,
+                  50
+                ],
+                [
+                  32,
+                  26
+                ],
+                [
+                  62,
+                  26
+                ],
+                [
+                  78,
+                  44
+                ],
+                [
+                  96,
+                  26
+                ],
+                [
+                  96,
+                  74
+                ],
+                [
+                  78,
+                  56
+                ],
+                [
+                  62,
+                  74
+                ],
+                [
+                  32,
+                  74
+                ]
+              ]
+            },
+            {
+              "icono": "⭐",
+              "palabra": "estrella",
+              "puntos": [
+                [
+                  50.0,
+                  10.0
+                ],
+                [
+                  60.6,
+                  39.4
+                ],
+                [
+                  91.8,
+                  40.4
+                ],
+                [
+                  67.1,
+                  59.6
+                ],
+                [
+                  75.9,
+                  89.6
+                ],
+                [
+                  50.0,
+                  72.0
+                ],
+                [
+                  24.1,
+                  89.6
+                ],
+                [
+                  32.9,
+                  59.6
+                ],
+                [
+                  8.2,
+                  40.4
+                ],
+                [
+                  39.4,
+                  39.4
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m1-diferente",
+      "modulo": 1,
+      "titulo": "diferente",
+      "icono": "🔍",
+      "pasos": [
+        {
+          "mecanica": "encuentra_diferente",
+          "rondas": [
+            {
+              "icono": "🐟",
+              "cambio": "espejo",
+              "cantidad": 3
+            },
+            {
+              "icono": "🌲",
+              "cambio": "invertido",
+              "cantidad": 4
+            },
+            {
+              "icono": "🐘",
+              "cambio": "tamano",
+              "cantidad": 4
+            },
+            {
+              "icono": "🚗",
+              "cambio": "espejo",
+              "cantidad": 4
+            },
+            {
+              "icono": "🦆",
+              "cambio": "espejo",
+              "cantidad": 5
+            },
+            {
+              "icono": "p",
+              "cambio": "espejo",
+              "cantidad": 4
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

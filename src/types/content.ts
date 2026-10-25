@@ -115,7 +115,102 @@ export interface PasoRuleta {
   meta?: number
 }
 
-export type Paso = PasoPresentacion | PasoElevador | PasoBloques | PasoDecodificador | PasoLupa | PasoRuleta
+// ---- Módulo 1: motricidad y coordinación ----
+
+/** Caminos predefinidos, todos de izquierda a derecha (ver lib/trazos.ts). */
+export type FormaTrazo = 'linea' | 'ondas' | 'zigzag' | 'arcos' | 'montanas'
+
+export interface Trazo {
+  forma: FormaTrazo
+  /** Personaje que se lleva con el dedo. */
+  inicio: string
+  /** Meta al final del camino. */
+  fin: string
+}
+
+export interface PasoTrazo {
+  mecanica: 'trazo_guiado'
+  trazos: Trazo[]
+}
+
+export interface Dibujo {
+  icono: string
+  palabra: string
+  /** Puntos en coordenadas 0–100, en el orden en que se unen. */
+  puntos: [number, number][]
+}
+
+export interface PasoUnirPuntos {
+  mecanica: 'unir_puntos'
+  dibujos: Dibujo[]
+}
+
+/** Qué tiene distinto el elemento diferente. */
+export type CambioDiferente = 'espejo' | 'invertido' | 'tamano'
+
+export interface RondaDiferente {
+  icono: string
+  cambio: CambioDiferente
+  /** Cuántos elementos se muestran (3 a 6). */
+  cantidad: number
+}
+
+export interface PasoDiferente {
+  mecanica: 'encuentra_diferente'
+  rondas: RondaDiferente[]
+}
+
+// ---- Módulo 2: conciencia fonológica ----
+
+/**
+ * - sonido_inicial: `estimulo` es un fonema (id); se eligen las imágenes que empiezan con ese sonido.
+ * - rima: `estimulo` es una palabra (con `icono`); se eligen las que riman con ella.
+ * - contraste: `estimulo` es una palabra que solo se escucha; se elige entre palabras casi iguales (pino/vino).
+ */
+export type ModoEscucha = 'sonido_inicial' | 'rima' | 'contraste'
+
+export interface OpcionEscucha {
+  texto: string
+  icono: string
+  correcta: boolean
+}
+
+export interface RondaEscucha {
+  modo: ModoEscucha
+  estimulo: string
+  icono?: string
+  opciones: OpcionEscucha[]
+}
+
+export interface PasoEscucha {
+  mecanica: 'escucha_y_elige'
+  rondas: RondaEscucha[]
+}
+
+export interface PalabraPalmadas {
+  texto: string
+  icono: string
+  /** División silábica explícita (e·le·fan·te): no se puede deducir con reglas simples. */
+  silabas: string[]
+}
+
+export interface PasoPalmadas {
+  mecanica: 'palmadas'
+  palabras: PalabraPalmadas[]
+}
+
+export type Paso =
+  | PasoEscucha
+  | PasoPalmadas
+  | PasoPresentacion
+  | PasoElevador
+  | PasoBloques
+  | PasoDecodificador
+  | PasoLupa
+  | PasoRuleta
+  | PasoTrazo
+  | PasoUnirPuntos
+  | PasoDiferente
 export type Mecanica = Paso['mecanica']
 
 export interface Leccion {

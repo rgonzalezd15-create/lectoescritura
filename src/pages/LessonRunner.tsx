@@ -17,21 +17,48 @@ import type { Leccion, ResultadoPaso } from '../types/content'
 function audiosDeLeccion(l: Leccion): string[] {
   const urls: string[] = []
   for (const p of l.pasos) {
-    if (p.mecanica === 'presentacion_fonema') urls.push(urlFonema(p.fonema))
-    else if (p.mecanica === 'bloques_construccion') {
-      for (const o of p.objetivos) urls.push(urlPalabra(o.texto), ...[...bloquesDe(o), ...o.distractores].map(urlSilaba))
-    } else if (p.mecanica === 'decodificador_color') {
-      for (const o of p.objetivos) urls.push(urlPalabra(o.texto), ...silabasDe(o).map(urlSilaba))
-    } else if (p.mecanica === 'lupa_magica') {
-      for (const o of p.objetivos) urls.push(urlPalabra(o.texto), ...[...silabasDe(o), ...o.distractores].map(urlSilaba))
-    } else if (p.mecanica === 'ruleta_silabica') {
-      urls.push(...[...p.primera, ...p.segunda].map(urlSilaba))
-      for (const a of p.primera) for (const b of p.segunda) urls.push(urlPalabra(a + b))
-    } else {
-      urls.push(...[...p.consonantes, ...p.vocales].map(urlFonema))
-      for (const o of p.objetivos) {
-        if ((p.silabas ?? 1) === 1) urls.push(urlSilaba(o.texto))
-        else urls.push(urlPalabra(o.texto), ...dividirCV(o.texto).map(urlSilaba))
+    switch (p.mecanica) {
+      case 'presentacion_fonema':
+        urls.push(urlFonema(p.fonema))
+        break
+      case 'elevador_silabas':
+        urls.push(...[...p.consonantes, ...p.vocales].map(urlFonema))
+        for (const o of p.objetivos) {
+          if ((p.silabas ?? 1) === 1) urls.push(urlSilaba(o.texto))
+          else urls.push(urlPalabra(o.texto), ...dividirCV(o.texto).map(urlSilaba))
+        }
+        break
+      case 'bloques_construccion':
+        for (const o of p.objetivos) urls.push(urlPalabra(o.texto), ...[...bloquesDe(o), ...o.distractores].map(urlSilaba))
+        break
+      case 'decodificador_color':
+        for (const o of p.objetivos) urls.push(urlPalabra(o.texto), ...silabasDe(o).map(urlSilaba))
+        break
+      case 'lupa_magica':
+        for (const o of p.objetivos) urls.push(urlPalabra(o.texto), ...[...silabasDe(o), ...o.distractores].map(urlSilaba))
+        break
+      case 'ruleta_silabica':
+        urls.push(...[...p.primera, ...p.segunda].map(urlSilaba))
+        for (const a of p.primera) for (const b of p.segunda) urls.push(urlPalabra(a + b))
+        break
+      case 'unir_puntos':
+        urls.push(...p.dibujos.map((d) => urlPalabra(d.palabra)))
+        break
+      case 'escucha_y_elige':
+        for (const r of p.rondas) {
+          urls.push(r.modo === 'sonido_inicial' ? urlFonema(r.estimulo) : urlPalabra(r.estimulo))
+          urls.push(...r.opciones.map((o) => urlPalabra(o.texto)))
+        }
+        break
+      case 'palmadas':
+        for (const w of p.palabras) urls.push(urlPalabra(w.texto), ...w.silabas.map(urlSilaba))
+        break
+      case 'trazo_guiado':
+      case 'encuentra_diferente':
+        break
+      default: {
+        const nunca: never = p
+        void nunca
       }
     }
   }

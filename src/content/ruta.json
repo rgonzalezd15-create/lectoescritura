@@ -39,16 +39,25 @@
       "nombre": "Motricidad y Coordinación",
       "icono": "✏️",
       "color": "#7c3aed",
-      "disponible": false,
-      "lecciones": []
+      "disponible": true,
+      "lecciones": [
+        "m1-caminos",
+        "m1-puntos",
+        "m1-diferente"
+      ]
     },
     {
       "id": 2,
       "nombre": "Conciencia Fonológica",
       "icono": "👂",
       "color": "#0e7490",
-      "disponible": false,
-      "lecciones": []
+      "disponible": true,
+      "lecciones": [
+        "m2-palmadas",
+        "m2-sonidos",
+        "m2-rimas",
+        "m2-parecidos"
+      ]
     },
     {
       "id": 3,

@@ -1,0 +1,467 @@
+{
+  "modulo": 2,
+  "lecciones": [
+    {
+      "id": "m2-palmadas",
+      "modulo": 2,
+      "titulo": "palmadas",
+      "icono": "🥁",
+      "pasos": [
+        {
+          "mecanica": "palmadas",
+          "palabras": [
+            {
+              "texto": "sol",
+              "icono": "☀️",
+              "silabas": [
+                "sol"
+              ]
+            },
+            {
+              "texto": "mamá",
+              "icono": "👩",
+              "silabas": [
+                "ma",
+                "má"
+              ]
+            },
+            {
+              "texto": "pato",
+              "icono": "🦆",
+              "silabas": [
+                "pa",
+                "to"
+              ]
+            },
+            {
+              "texto": "tomate",
+              "icono": "🍅",
+              "silabas": [
+                "to",
+                "ma",
+                "te"
+              ]
+            },
+            {
+              "texto": "pan",
+              "icono": "🍞",
+              "silabas": [
+                "pan"
+              ]
+            },
+            {
+              "texto": "mariposa",
+              "icono": "🦋",
+              "silabas": [
+                "ma",
+                "ri",
+                "po",
+                "sa"
+              ]
+            },
+            {
+              "texto": "elefante",
+              "icono": "🐘",
+              "silabas": [
+                "e",
+                "le",
+                "fan",
+                "te"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m2-sonidos",
+      "modulo": 2,
+      "titulo": "sonidos",
+      "icono": "👂",
+      "pasos": [
+        {
+          "mecanica": "escucha_y_elige",
+          "rondas": [
+            {
+              "modo": "sonido_inicial",
+              "estimulo": "a",
+              "opciones": [
+                {
+                  "texto": "árbol",
+                  "icono": "🌳",
+                  "correcta": true
+                },
+                {
+                  "texto": "avión",
+                  "icono": "✈️",
+                  "correcta": true
+                },
+                {
+                  "texto": "oso",
+                  "icono": "🐻",
+                  "correcta": false
+                },
+                {
+                  "texto": "uva",
+                  "icono": "🍇",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "sonido_inicial",
+              "estimulo": "s",
+              "opciones": [
+                {
+                  "texto": "sol",
+                  "icono": "☀️",
+                  "correcta": true
+                },
+                {
+                  "texto": "sapo",
+                  "icono": "🐸",
+                  "correcta": true
+                },
+                {
+                  "texto": "mano",
+                  "icono": "✋",
+                  "correcta": false
+                },
+                {
+                  "texto": "luna",
+                  "icono": "🌙",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "sonido_inicial",
+              "estimulo": "m",
+              "opciones": [
+                {
+                  "texto": "mano",
+                  "icono": "✋",
+                  "correcta": true
+                },
+                {
+                  "texto": "moto",
+                  "icono": "🏍️",
+                  "correcta": true
+                },
+                {
+                  "texto": "pato",
+                  "icono": "🦆",
+                  "correcta": false
+                },
+                {
+                  "texto": "nube",
+                  "icono": "☁️",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "sonido_inicial",
+              "estimulo": "p",
+              "opciones": [
+                {
+                  "texto": "pato",
+                  "icono": "🦆",
+                  "correcta": true
+                },
+                {
+                  "texto": "pez",
+                  "icono": "🐟",
+                  "correcta": true
+                },
+                {
+                  "texto": "uva",
+                  "icono": "🍇",
+                  "correcta": false
+                },
+                {
+                  "texto": "foca",
+                  "icono": "🦭",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "sonido_inicial",
+              "estimulo": "l",
+              "opciones": [
+                {
+                  "texto": "luna",
+                  "icono": "🌙",
+                  "correcta": true
+                },
+                {
+                  "texto": "lupa",
+                  "icono": "🔍",
+                  "correcta": true
+                },
+                {
+                  "texto": "sapo",
+                  "icono": "🐸",
+                  "correcta": false
+                },
+                {
+                  "texto": "fuego",
+                  "icono": "🔥",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "sonido_inicial",
+              "estimulo": "f",
+              "opciones": [
+                {
+                  "texto": "foca",
+                  "icono": "🦭",
+                  "correcta": true
+                },
+                {
+                  "texto": "fuego",
+                  "icono": "🔥",
+                  "correcta": true
+                },
+                {
+                  "texto": "flor",
+                  "icono": "🌸",
+                  "correcta": true
+                },
+                {
+                  "texto": "nube",
+                  "icono": "☁️",
+                  "correcta": false
+                },
+                {
+                  "texto": "mapa",
+                  "icono": "🗺️",
+                  "correcta": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m2-rimas",
+      "modulo": 2,
+      "titulo": "rimas",
+      "icono": "🎵",
+      "pasos": [
+        {
+          "mecanica": "escucha_y_elige",
+          "rondas": [
+            {
+              "modo": "rima",
+              "estimulo": "gato",
+              "icono": "🐈",
+              "opciones": [
+                {
+                  "texto": "pato",
+                  "icono": "🦆",
+                  "correcta": true
+                },
+                {
+                  "texto": "sol",
+                  "icono": "☀️",
+                  "correcta": false
+                },
+                {
+                  "texto": "mano",
+                  "icono": "✋",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "rima",
+              "estimulo": "ratón",
+              "icono": "🐭",
+              "opciones": [
+                {
+                  "texto": "camión",
+                  "icono": "🚚",
+                  "correcta": true
+                },
+                {
+                  "texto": "pez",
+                  "icono": "🐟",
+                  "correcta": false
+                },
+                {
+                  "texto": "uva",
+                  "icono": "🍇",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "rima",
+              "estimulo": "cama",
+              "icono": "🛏️",
+              "opciones": [
+                {
+                  "texto": "llama",
+                  "icono": "🦙",
+                  "correcta": true
+                },
+                {
+                  "texto": "foca",
+                  "icono": "🦭",
+                  "correcta": false
+                },
+                {
+                  "texto": "oso",
+                  "icono": "🐻",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "rima",
+              "estimulo": "bota",
+              "icono": "👢",
+              "opciones": [
+                {
+                  "texto": "pelota",
+                  "icono": "⚽",
+                  "correcta": true
+                },
+                {
+                  "texto": "luna",
+                  "icono": "🌙",
+                  "correcta": false
+                },
+                {
+                  "texto": "pan",
+                  "icono": "🍞",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "rima",
+              "estimulo": "gusano",
+              "icono": "🐛",
+              "opciones": [
+                {
+                  "texto": "mano",
+                  "icono": "✋",
+                  "correcta": true
+                },
+                {
+                  "texto": "fresa",
+                  "icono": "🍓",
+                  "correcta": false
+                },
+                {
+                  "texto": "pez",
+                  "icono": "🐟",
+                  "correcta": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m2-parecidos",
+      "modulo": 2,
+      "titulo": "parecidos",
+      "icono": "🔊",
+      "pasos": [
+        {
+          "mecanica": "escucha_y_elige",
+          "rondas": [
+            {
+              "modo": "contraste",
+              "estimulo": "pino",
+              "opciones": [
+                {
+                  "texto": "pino",
+                  "icono": "🌲",
+                  "correcta": true
+                },
+                {
+                  "texto": "vino",
+                  "icono": "🍷",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "contraste",
+              "estimulo": "dos",
+              "opciones": [
+                {
+                  "texto": "dos",
+                  "icono": "✌️",
+                  "correcta": true
+                },
+                {
+                  "texto": "tos",
+                  "icono": "🤧",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "contraste",
+              "estimulo": "vino",
+              "opciones": [
+                {
+                  "texto": "vino",
+                  "icono": "🍷",
+                  "correcta": true
+                },
+                {
+                  "texto": "pino",
+                  "icono": "🌲",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "contraste",
+              "estimulo": "pato",
+              "opciones": [
+                {
+                  "texto": "pato",
+                  "icono": "🦆",
+                  "correcta": true
+                },
+                {
+                  "texto": "gato",
+                  "icono": "🐈",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "modo": "contraste",
+              "estimulo": "tos",
+              "opciones": [
+                {
+                  "texto": "tos",
+                  "icono": "🤧",
+                  "correcta": true
+                },
+                {
+                  "texto": "dos",
+                  "icono": "✌️",
+                  "correcta": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

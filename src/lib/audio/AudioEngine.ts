@@ -128,6 +128,23 @@ class AudioEngine {
     return buf ? this.reproducir(buf) : this.hablar(FRASES[id], 0.9)
   }
 
+  /** Golpe de tambor breve (palmadas). */
+  golpe(): Promise<void> {
+    const ctx = this.contexto()
+    const t = ctx.currentTime
+    const osc = ctx.createOscillator()
+    const g = ctx.createGain()
+    osc.type = 'sine'
+    osc.frequency.setValueAtTime(160, t)
+    osc.frequency.exponentialRampToValueAtTime(60, t + 0.18)
+    g.gain.setValueAtTime(0.6, t)
+    g.gain.exponentialRampToValueAtTime(0.001, t + 0.22)
+    osc.connect(g).connect(this.master!)
+    osc.start(t)
+    osc.stop(t + 0.24)
+    return espera(220)
+  }
+
   /** Tonos breves de refuerzo (no requieren archivos). */
   tono(tipo: 'exito' | 'intento'): Promise<void> {
     const ctx = this.contexto()

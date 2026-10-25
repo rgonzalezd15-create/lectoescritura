@@ -52,6 +52,24 @@ export function audiosRequeridos(): AudioRequerido[] {
             agregar(urlPalabra(a + b), reales.has(a + b) ? `Palabra "${a + b}"` : `Combinación sin sentido "${a + b}" (leerla tal cual)`)
         continue
       }
+      if (p.mecanica === 'escucha_y_elige') {
+        for (const r of p.rondas) {
+          if (r.modo !== 'sonido_inicial') agregar(urlPalabra(r.estimulo), `Palabra "${r.estimulo}"`)
+          for (const o of r.opciones) agregar(urlPalabra(o.texto), `Palabra "${o.texto}"`)
+        }
+        continue
+      }
+      if (p.mecanica === 'palmadas') {
+        for (const w of p.palabras) {
+          agregar(urlPalabra(w.texto), `Palabra "${w.texto}"`)
+          for (const s of w.silabas) agregar(urlSilaba(s), `Sílaba "${s}"`)
+        }
+        continue
+      }
+      if (p.mecanica === 'unir_puntos') {
+        for (const d of p.dibujos) agregar(urlPalabra(d.palabra), `Palabra "${d.palabra}"`)
+        continue
+      }
       if (p.mecanica !== 'elevador_silabas') continue
       for (const c of p.consonantes)
         for (const v of p.vocales) agregar(urlSilaba(c + v), `Sílaba "${c + v}"`)

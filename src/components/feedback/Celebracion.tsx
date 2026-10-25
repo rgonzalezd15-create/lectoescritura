@@ -29,8 +29,9 @@ export function Celebracion({ visible }: { visible: boolean }) {
               {p.icono}
             </motion.span>
           ))}
+          {/* Arriba, para no tapar lo que el niño acaba de lograr */}
           <motion.span
-            className="text-9xl"
+            className="absolute top-20 text-7xl sm:text-8xl"
             initial={{ scale: 0 }}
             animate={{ scale: [0, 1.3, 1] }}
             transition={{ duration: 0.5 }}

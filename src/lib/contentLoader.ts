@@ -1,10 +1,13 @@
 import fonemasData from '../content/fonemas.json'
 import rutaData from '../content/ruta.json'
+import m1 from '../content/lecciones/m1-motricidad.json'
+import m2 from '../content/lecciones/m2-fonologica.json'
 import m3 from '../content/lecciones/m3-vocales.json'
 import m4 from '../content/lecciones/m4-consonantes.json'
 import m5 from '../content/lecciones/m5-palabras.json'
 import type { Fonema, Leccion, Modulo } from '../types/content'
 import { bloquesDe, dividirCV, partirSilaba, silabasDe } from './silabas'
+import { CAMINOS } from './trazos'
 
 export const fonemas = fonemasData as unknown as Fonema[]
 export const fonemaPorId = new Map(fonemas.map((f) => [f.id, f]))
@@ -12,7 +15,7 @@ export const fonemaPorId = new Map(fonemas.map((f) => [f.id, f]))
 export const modulos = rutaData.modulos as Modulo[]
 export const ordenConsonantes = rutaData.ordenConsonantes
 
-export const lecciones: Leccion[] = [m3, m4, m5].flatMap((m) => m.lecciones as unknown as Leccion[])
+export const lecciones: Leccion[] = [m1, m2, m3, m4, m5].flatMap((m) => m.lecciones as unknown as Leccion[])
 const leccionPorId = new Map(lecciones.map((l) => [l.id, l]))
 
 export const getLeccion = (id: string) => leccionPorId.get(id)
@@ -101,6 +104,47 @@ export function validarContenido(): string[] {
         }
         if ((paso.meta ?? 5) > paso.palabras.length && paso.meta !== undefined)
           errores.push(`${donde}: la meta (${paso.meta}) supera las palabras disponibles`)
+        return
+      }
+      if (paso.mecanica === 'trazo_guiado') {
+        for (const t of paso.trazos) if (!(t.forma in CAMINOS)) errores.push(`${donde}: camino "${t.forma}" no existe`)
+        return
+      }
+      if (paso.mecanica === 'unir_puntos') {
+        for (const d of paso.dibujos) {
+          if (d.puntos.length < 3) errores.push(`${donde}: "${d.palabra}" necesita al menos 3 puntos`)
+          if (d.puntos.some(([x, y]) => x < 0 || x > 100 || y < 0 || y > 100))
+            errores.push(`${donde}: "${d.palabra}" tiene puntos fuera de 0–100`)
+        }
+        return
+      }
+      if (paso.mecanica === 'encuentra_diferente') {
+        for (const r of paso.rondas) if (r.cantidad < 3 || r.cantidad > 6) errores.push(`${donde}: cantidad debe ser de 3 a 6`)
+        return
+      }
+      if (paso.mecanica === 'escucha_y_elige') {
+        for (const r of paso.rondas) {
+          const buenas = r.opciones.filter((o) => o.correcta)
+          if (!buenas.length) errores.push(`${donde}: la ronda "${r.estimulo}" no tiene opción correcta`)
+          if (r.modo === 'contraste' && buenas.length !== 1) errores.push(`${donde}: contraste "${r.estimulo}" debe tener una sola correcta`)
+          if (r.modo === 'contraste' && buenas[0]?.texto !== r.estimulo) errores.push(`${donde}: en contraste la correcta debe ser "${r.estimulo}"`)
+          if (r.modo === 'sonido_inicial') {
+            const f = fonemaPorId.get(r.estimulo)
+            if (!f) errores.push(`${donde}: fonema "${r.estimulo}" no existe`)
+            // Solo palabras cuya letra inicial coincide con el sonido (se evita c/z/h para no confundir con el seseo).
+            for (const o of r.opciones) {
+              const empieza = o.texto.normalize('NFD').toLowerCase().startsWith(r.estimulo)
+              if (empieza !== o.correcta) errores.push(`${donde}: "${o.texto}" está mal marcada para el sonido "${r.estimulo}"`)
+            }
+          }
+        }
+        return
+      }
+      if (paso.mecanica === 'palmadas') {
+        for (const w of paso.palabras) {
+          if (w.silabas.join('') !== w.texto) errores.push(`${donde}: las sílabas de "${w.texto}" no forman la palabra`)
+          if (w.silabas.length > 6) errores.push(`${donde}: "${w.texto}" tiene más de 6 sílabas`)
+        }
         return
       }
       errores.push(`${donde}: mecánica desconocida "${(paso as { mecanica: string }).mecanica}"`)

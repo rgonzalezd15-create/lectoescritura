@@ -14,6 +14,13 @@ export const FRASES = {
   otra: 'Escucha otra vez',
   ayuda: 'Mira, así se forma',
   fin: '¡Lo lograste!',
+  camino: 'Lleva a tu amigo por el camino',
+  puntos: 'Une los puntos',
+  diferente: '¿Cuál es diferente?',
+  empieza: '¿Qué empieza con este sonido?',
+  rima: '¿Qué rima con esta palabra?',
+  cual: '¿Cuál escuchas?',
+  palmadas: 'Toca el tambor en cada sílaba',
 } as const
 export type FraseId = keyof typeof FRASES
 
