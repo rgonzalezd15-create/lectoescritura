@@ -169,8 +169,19 @@ class AudioEngine {
 
   // ---- Internos ----
 
-  private registrar(nodo: AudioScheduledSourceNode): Promise<void> {
+  /**
+   * Devuelve una promesa que se cumple cuando el nodo termina. Si el navegador
+   * mantiene el audio suspendido (página abierta sin un toque previo), `onended`
+   * nunca llega: por eso también se cumple al pasar la duración esperada, para
+   * que la interfaz no quede esperando para siempre.
+   */
+  private registrar(nodo: AudioScheduledSourceNode, segundos: number): Promise<void> {
     return new Promise((resolve) => {
+      const terminar = () => {
+        clearTimeout(reserva)
+        this.activos.delete(activo)
+        resolve()
+      }
       const activo: Activo = {
         detener: () => {
           try {
@@ -178,14 +189,12 @@ class AudioEngine {
           } catch {
             /* ya detenido */
           }
-          resolve()
+          terminar()
         },
       }
+      const reserva = setTimeout(terminar, segundos * 1000 + 250)
       this.activos.add(activo)
-      nodo.onended = () => {
-        this.activos.delete(activo)
-        resolve()
-      }
+      nodo.onended = terminar
     })
   }
 
@@ -194,7 +203,7 @@ class AudioEngine {
     const src = ctx.createBufferSource()
     src.buffer = buf
     src.connect(this.master!)
-    const fin = this.registrar(src)
+    const fin = this.registrar(src, buf.duration)
     src.start()
     return fin
   }
@@ -290,7 +299,7 @@ class AudioEngine {
       env.gain.setValueAtTime(pico, t + dur - 0.1)
       env.gain.linearRampToValueAtTime(0, t + dur)
     }
-    const fin = this.registrar(fuente)
+    const fin = this.registrar(fuente, dur + 0.02)
     fuente.start(t)
     fuente.stop(t + dur + 0.02)
     return fin
