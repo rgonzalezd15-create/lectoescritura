@@ -5,7 +5,12 @@ App web para enseñar a leer y escribir desde cero, basada en la metodología de
 
 **Regla de oro:** toda letra suena con su **fonema** (`/mmm/`, `/sss/`, `/p/`), nunca con su nombre ("eme", "ese", "pe").
 
-## Uso
+## Ver la app sin instalar nada
+
+**https://rgonzalezd15-create.github.io/lectoescritura/** — se publica sola con cada cambio en `main`
+(GitHub Actions → `.github/workflows/deploy.yml`). Funciona en computador, tablet y teléfono.
+
+## Uso (para desarrollar)
 
 ```bash
 npm install
